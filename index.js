@@ -14,12 +14,6 @@ app.get('/', function (req, res) {
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-/*
- - [ ] You can submit a form that includes a file upload.
- - [ ] The form file input field has the name attribute set to upfile.
- - [ ] When you submit a file, you receive the file name, type, and size in bytes within the JSON response.
- - [ ] You should provide your own project, not the example URL.
-*/
 app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
   res.json({name: req.file.originalname, type: req.file.mimetype, size: req.file.size});
 });
